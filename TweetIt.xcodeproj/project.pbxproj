@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		FC74C3221D440F5100A5C11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C3211D440F5100A5C11A /* AppDelegate.swift */; };
-		FC74C3241D440F5100A5C11A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C3231D440F5100A5C11A /* ViewController.swift */; };
 		FC74C3271D440F5100A5C11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3251D440F5100A5C11A /* Main.storyboard */; };
 		FC74C3291D440F5100A5C11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3281D440F5100A5C11A /* Assets.xcassets */; };
 		FC74C32C1D440F5100A5C11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC74C32A1D440F5100A5C11A /* LaunchScreen.storyboard */; };
+		FC74C3381D440FFB00A5C11A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74C3341D440FFB00A5C11A /* Fabric.framework */; };
+		FC74C3391D440FFB00A5C11A /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74C3351D440FFB00A5C11A /* TwitterKit.framework */; };
+		FC74C33A1D440FFB00A5C11A /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3361D440FFB00A5C11A /* TwitterKitResources.bundle */; };
+		FC74C33B1D440FFB00A5C11A /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74C3371D440FFB00A5C11A /* TwitterCore.framework */; };
+		FC74C3401D44109A00A5C11A /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */; };
+		FC74C3411D44109A00A5C11A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */; };
+		FC74C3421D44109A00A5C11A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33F1D44109A00A5C11A /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC74C31E1D440F5100A5C11A /* TweetIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC74C3211D440F5100A5C11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC74C3231D440F5100A5C11A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC74C3261D440F5100A5C11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC74C3281D440F5100A5C11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC74C32B1D440F5100A5C11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC74C32D1D440F5100A5C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC74C3341D440FFB00A5C11A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FC74C3351D440FFB00A5C11A /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		FC74C3361D440FFB00A5C11A /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		FC74C3371D440FFB00A5C11A /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		FC74C33F1D44109A00A5C11A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC74C3381D440FFB00A5C11A /* Fabric.framework in Frameworks */,
+				FC74C33B1D440FFB00A5C11A /* TwitterCore.framework in Frameworks */,
+				FC74C3391D440FFB00A5C11A /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +69,28 @@
 		FC74C3201D440F5100A5C11A /* TweetIt */ = {
 			isa = PBXGroup;
 			children = (
+				FC74C33C1D44102900A5C11A /* Twitter Frameworks */,
 				FC74C3211D440F5100A5C11A /* AppDelegate.swift */,
-				FC74C3231D440F5100A5C11A /* ViewController.swift */,
 				FC74C3251D440F5100A5C11A /* Main.storyboard */,
+				FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */,
+				FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */,
+				FC74C33F1D44109A00A5C11A /* DetailViewController.swift */,
 				FC74C3281D440F5100A5C11A /* Assets.xcassets */,
 				FC74C32A1D440F5100A5C11A /* LaunchScreen.storyboard */,
 				FC74C32D1D440F5100A5C11A /* Info.plist */,
 			);
 			path = TweetIt;
+			sourceTree = "<group>";
+		};
+		FC74C33C1D44102900A5C11A /* Twitter Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC74C3341D440FFB00A5C11A /* Fabric.framework */,
+				FC74C3351D440FFB00A5C11A /* TwitterKit.framework */,
+				FC74C3361D440FFB00A5C11A /* TwitterKitResources.bundle */,
+				FC74C3371D440FFB00A5C11A /* TwitterCore.framework */,
+			);
+			name = "Twitter Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +103,7 @@
 				FC74C31A1D440F5100A5C11A /* Sources */,
 				FC74C31B1D440F5100A5C11A /* Frameworks */,
 				FC74C31C1D440F5100A5C11A /* Resources */,
+				FC74C3331D440F5F00A5C11A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -123,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC74C33A1D440FFB00A5C11A /* TwitterKitResources.bundle in Resources */,
 				FC74C32C1D440F5100A5C11A /* LaunchScreen.storyboard in Resources */,
 				FC74C3291D440F5100A5C11A /* Assets.xcassets in Resources */,
 				FC74C3271D440F5100A5C11A /* Main.storyboard in Resources */,
@@ -131,13 +162,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FC74C3331D440F5F00A5C11A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run c4340f92c7dd026b7312ad6a8ee1a161a3883c4c c8ce691cf63de67f07a967e9f7f73863e10101fb9d3f57f46a8a7c139cdd875c";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC74C31A1D440F5100A5C11A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC74C3241D440F5100A5C11A /* ViewController.swift in Sources */,
+				FC74C3401D44109A00A5C11A /* CustomAlertViewController.swift in Sources */,
 				FC74C3221D440F5100A5C11A /* AppDelegate.swift in Sources */,
+				FC74C3411D44109A00A5C11A /* CustomTabBarController.swift in Sources */,
+				FC74C3421D44109A00A5C11A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +299,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TweetIt",
+				);
 				INFOPLIST_FILE = TweetIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewmogg.TweetIt;
@@ -261,6 +314,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TweetIt",
+				);
 				INFOPLIST_FILE = TweetIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewmogg.TweetIt;

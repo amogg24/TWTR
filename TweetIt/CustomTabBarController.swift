@@ -17,10 +17,7 @@ class CustomTabBarController: UITabBarController {
     var itemA: UITabBarItem!
     var itemB: UITabBarItem!
     var hiddenItem: UITabBarItem! // hidden by a large menu button
-    var itemC: UITabBarItem!
-    var moreItem: UITabBarItem! // to demonstrate "more" functionality
-    var itemD: UITabBarItem!
-    var itemE: UITabBarItem!
+ 
     
     // View controllers linked to each tab bar item
     // Note these are created in the storyboard without segues
@@ -28,9 +25,7 @@ class CustomTabBarController: UITabBarController {
     var vcA: UIViewController!
     var vcB: UIViewController!
     var vcHidden: UIViewController!
-    var vcC: UIViewController!
-    var vcD: UIViewController!
-    var vcE: UIViewController!
+
     
     // Used to manually create the background fade effect when presenting a popup subview
     var fadeView: UIView!
@@ -137,10 +132,7 @@ class CustomTabBarController: UITabBarController {
         itemA = UITabBarItem(title: "A", image: UIImage(named: "character-a-7"), selectedImage: nil)
         itemB = UITabBarItem(title: "B", image: UIImage(named: "character-b-7"), selectedImage: nil)
         hiddenItem = UITabBarItem(title: "", image: UIImage(named: "character-a-7"), selectedImage: nil)
-        itemC = UITabBarItem(title: "C", image: UIImage(named: "character-c-7"), selectedImage: nil)
-        moreItem = UITabBarItem(tabBarSystemItem: .More, tag: 0)
-        itemD = UITabBarItem(title: "D", image: UIImage(named: "character-d-7"), selectedImage: nil)
-        itemE = UITabBarItem(title: "E", image: UIImage(named: "character-e-7"), selectedImage: nil)
+      
         
         // Initiate each view controller and assign its associated tab bar item
         vcA = (storyboard?.instantiateViewControllerWithIdentifier("A"))! as UIViewController
@@ -149,18 +141,12 @@ class CustomTabBarController: UITabBarController {
         vcB.tabBarItem = UITabBarItem(title: "B", image: UIImage(named: "character-b-7"), selectedImage: nil)
         vcHidden = (storyboard?.instantiateViewControllerWithIdentifier("Hidden"))! as
         UIViewController
-        vcC = (storyboard?.instantiateViewControllerWithIdentifier("C"))! as UIViewController
-        vcC.tabBarItem = UITabBarItem(title: "C", image: UIImage(named: "character-c-7"), selectedImage: nil)
-        vcD = (storyboard?.instantiateViewControllerWithIdentifier("D"))! as UIViewController
-        vcD.tabBarItem = UITabBarItem(title: "D", image: UIImage(named: "character-d-7"), selectedImage: nil)
-        vcE = (storyboard?.instantiateViewControllerWithIdentifier("E"))! as UIViewController
-        vcE.tabBarItem = UITabBarItem(title: "E", image: UIImage(named: "character-e-7"), selectedImage: nil)
         
         // Add the tab bar items to the customTabBar
-        customTabBar.items = [itemA, itemB, hiddenItem, itemC, moreItem]
+        customTabBar.items = [itemA, itemB, hiddenItem]
         
         // Add the view controllers to the tab bar controller
-        viewControllers = [vcA, vcB, vcHidden, vcC, vcD, vcE]
+        viewControllers = [vcA, vcB, vcHidden]
         
         // Disable editing of the tab bar arrangement
         customizableViewControllers = []
@@ -207,27 +193,7 @@ class CustomTabBarController: UITabBarController {
         case hiddenItem:
             customTabBar.selectedItem = selectedItem
             break
-        case itemC:
-            selectedViewController = vcC
-            customTabBar.selectedItem = itemC
-            selectedItem = itemC
-            break
-        case moreItem:
-            selectedViewController = moreNavigationController
-            customTabBar.selectedItem = moreItem
-            selectedItem = moreItem
-            break
-        case itemD:
-            selectedViewController = vcD
-            customTabBar.selectedItem = itemD
-            selectedItem = itemD
-            break
-        case itemE:
-            selectedViewController = vcE
-            customTabBar.selectedItem = itemE
-            selectedItem = itemE
-            break
-        default:
+              default:
             selectedViewController = vcA
             customTabBar.selectedItem = itemA
             break
