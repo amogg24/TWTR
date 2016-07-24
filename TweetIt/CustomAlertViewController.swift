@@ -39,10 +39,10 @@ class CustomAlertViewController: UIViewController, UITableViewDataSource, UITabl
     // Handle row creation
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var row = indexPath.row
+        let row = indexPath.row
         
 //        var cell = tableView.dequeueReusableCellWithIdentifier("simpleLabelRow") as UITableViewCell!
-        var cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("simpleLabelRow")
+        let cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("simpleLabelRow")
         
         // Assign for simple labels
         switch(row) {

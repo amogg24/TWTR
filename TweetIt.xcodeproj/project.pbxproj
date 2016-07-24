@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC2B21971D454A6B001767C3 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B21961D454A6B001767C3 /* TimelineViewController.swift */; };
+		FC2B21991D454A90001767C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B21981D454A90001767C3 /* LoginViewController.swift */; };
 		FC74C3221D440F5100A5C11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C3211D440F5100A5C11A /* AppDelegate.swift */; };
 		FC74C3271D440F5100A5C11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3251D440F5100A5C11A /* Main.storyboard */; };
 		FC74C3291D440F5100A5C11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3281D440F5100A5C11A /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC2B21961D454A6B001767C3 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		FC2B21981D454A90001767C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FC74C31E1D440F5100A5C11A /* TweetIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC74C3211D440F5100A5C11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC74C3261D440F5100A5C11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */,
 				FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */,
 				FC74C33F1D44109A00A5C11A /* DetailViewController.swift */,
+				FC2B21961D454A6B001767C3 /* TimelineViewController.swift */,
+				FC2B21981D454A90001767C3 /* LoginViewController.swift */,
 				FC74C3281D440F5100A5C11A /* Assets.xcassets */,
 				FC74C32A1D440F5100A5C11A /* LaunchScreen.storyboard */,
 				FC74C32D1D440F5100A5C11A /* Info.plist */,
@@ -183,10 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2B21991D454A90001767C3 /* LoginViewController.swift in Sources */,
 				FC74C3401D44109A00A5C11A /* CustomAlertViewController.swift in Sources */,
 				FC74C3221D440F5100A5C11A /* AppDelegate.swift in Sources */,
 				FC74C3411D44109A00A5C11A /* CustomTabBarController.swift in Sources */,
 				FC74C3421D44109A00A5C11A /* DetailViewController.swift in Sources */,
+				FC2B21971D454A6B001767C3 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +352,7 @@
 				FC74C3321D440F5100A5C11A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

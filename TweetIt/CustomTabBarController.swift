@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import TwitterKit
 
 class CustomTabBarController: UITabBarController {
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     
     // Custom tab bar to add over the default tab bar
     var customTabBar: UITabBar!
     
     // Tab bar items
     var itemA: UITabBarItem!
-    var itemB: UITabBarItem!
     var hiddenItem: UITabBarItem! // hidden by a large menu button
  
     
@@ -23,7 +26,6 @@ class CustomTabBarController: UITabBarController {
     // Note these are created in the storyboard without segues
     // They are referenced by a unique storyboard ID
     var vcA: UIViewController!
-    var vcB: UIViewController!
     var vcHidden: UIViewController!
 
     
@@ -32,11 +34,9 @@ class CustomTabBarController: UITabBarController {
     
     // Exploding menu elements
     var menuButton: UIButton!
-    var statusButton: UIButton!
-    var waterButton: UIButton!
-    var foodButton: UIButton!
-    var exerciseButton: UIButton!
-    var weightButton: UIButton!
+    var logoutButton: UIButton!
+    var profileButton: UIButton!
+    var tweetButton: UIButton!
     
     // Tracks which tab bar item is currently selected
     var selectedItem: UITabBarItem!
@@ -54,14 +54,18 @@ class CustomTabBarController: UITabBarController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        createButton()
         
+    }
+    
+    func createButton() {
         // Configure the fadeView to be totally transparent
         fadeView = UIView(frame: self.view.frame)
         fadeView.backgroundColor = UIColor.blackColor()
         fadeView.alpha = 0.0
         
         // Add a gesture recognizer to control when the fadeView is tapped
-        let singleTapBackground = UITapGestureRecognizer(target: self, action: "backgroundTapped:")
+        let singleTapBackground = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.backgroundTapped(_:)))
         singleTapBackground.numberOfTapsRequired = 1
         fadeView.addGestureRecognizer(singleTapBackground)
         
@@ -79,7 +83,7 @@ class CustomTabBarController: UITabBarController {
         menuButton.setImage(UIImage(named: "menu-button"), forState: UIControlState.Normal)
         
         // Add a gesture recognizer to the menu button
-        let singleTap = UITapGestureRecognizer(target: self, action: "menuTapped:")
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.menuTapped(_:)))
         singleTap.numberOfTapsRequired = 1
         menuButton.addGestureRecognizer(singleTap)
         
@@ -87,40 +91,26 @@ class CustomTabBarController: UITabBarController {
         // Give each its own gusture recognizer
         let menuItemSize = CGFloat(Int(0.9 * menuButtonSize))
         
-        statusButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        statusButton.setImage(UIImage(named: "Status"), forState: UIControlState.Normal)
+        logoutButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
+        logoutButton.setImage(UIImage(named: "Logout"), forState: UIControlState.Normal)
         
-        let statusTap = UITapGestureRecognizer(target: self, action: "statusTapped:")
-        singleTap.numberOfTapsRequired = 1
-        statusButton.addGestureRecognizer(statusTap)
+        let logoutTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.logOutTapped(_:)))
+        logoutTap.numberOfTapsRequired = 1
+        logoutButton.addGestureRecognizer(logoutTap)
         
-        waterButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        waterButton.setImage(UIImage(named: "Water"), forState: UIControlState.Normal)
+        profileButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
+        profileButton.setImage(UIImage(named: "Food"), forState: UIControlState.Normal)
         
-        let waterTap = UITapGestureRecognizer(target: self, action: "waterTapped:")
-        waterTap.numberOfTapsRequired = 1
-        waterButton.addGestureRecognizer(waterTap)
+        let profileTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.profileTapped(_:)))
+        profileTap.numberOfTapsRequired = 1
+        profileButton.addGestureRecognizer(profileTap)
         
-        foodButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        foodButton.setImage(UIImage(named: "Food"), forState: UIControlState.Normal)
+        tweetButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
+        tweetButton.setImage(UIImage(named: "tweetthumb"), forState: UIControlState.Normal)
         
-        let foodTap = UITapGestureRecognizer(target: self, action: "foodTapped:")
-        foodTap.numberOfTapsRequired = 1
-        foodButton.addGestureRecognizer(foodTap)
-        
-        exerciseButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        exerciseButton.setImage(UIImage(named: "Exercise"), forState: UIControlState.Normal)
-        
-        let exerciseTap = UITapGestureRecognizer(target: self, action: "exerciseTapped:")
-        exerciseTap.numberOfTapsRequired = 1
-        exerciseButton.addGestureRecognizer(exerciseTap)
-        
-        weightButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        weightButton.setImage(UIImage(named: "Weight"), forState: UIControlState.Normal)
-        
-        let weightTap = UITapGestureRecognizer(target: self, action: "weightTapped:")
-        weightTap.numberOfTapsRequired = 1
-        weightButton.addGestureRecognizer(weightTap)
+        let tweetTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.tweetTapped(_:)))
+        tweetTap.numberOfTapsRequired = 1
+        tweetButton.addGestureRecognizer(tweetTap)
         
         // Hide the built-in tab bar
         tabBar.hidden = true
@@ -128,25 +118,14 @@ class CustomTabBarController: UITabBarController {
         // Configure the custom tab bar
         customTabBar = UITabBar(frame: CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y, width: tabBar.frame.width, height: tabBar.frame.height))
         
-        // Initialize each of the tab bar items
-        itemA = UITabBarItem(title: "A", image: UIImage(named: "character-a-7"), selectedImage: nil)
-        itemB = UITabBarItem(title: "B", image: UIImage(named: "character-b-7"), selectedImage: nil)
-        hiddenItem = UITabBarItem(title: "", image: UIImage(named: "character-a-7"), selectedImage: nil)
-      
-        
         // Initiate each view controller and assign its associated tab bar item
-        vcA = (storyboard?.instantiateViewControllerWithIdentifier("A"))! as UIViewController
-        vcA.tabBarItem = UITabBarItem(title: "A", image: UIImage(named: "character-a-7"), selectedImage: nil)
-        vcB = (storyboard?.instantiateViewControllerWithIdentifier("B"))! as UIViewController
-        vcB.tabBarItem = UITabBarItem(title: "B", image: UIImage(named: "character-b-7"), selectedImage: nil)
+        vcA = (storyboard?.instantiateViewControllerWithIdentifier("Timeline"))! as UIViewController
         vcHidden = (storyboard?.instantiateViewControllerWithIdentifier("Hidden"))! as
         UIViewController
         
-        // Add the tab bar items to the customTabBar
-        customTabBar.items = [itemA, itemB, hiddenItem]
         
         // Add the view controllers to the tab bar controller
-        viewControllers = [vcA, vcB, vcHidden]
+        viewControllers = [vcA, vcHidden]
         
         // Disable editing of the tab bar arrangement
         customizableViewControllers = []
@@ -164,12 +143,11 @@ class CustomTabBarController: UITabBarController {
         
         // Add the customTabBar and exploding menu elements
         view.addSubview(customTabBar)
-        view.addSubview(statusButton)
-        view.addSubview(waterButton)
-        view.addSubview(foodButton)
-        view.addSubview(exerciseButton)
-        view.addSubview(weightButton)
+        view.addSubview(logoutButton)
+        view.addSubview(profileButton)
+        view.addSubview(tweetButton)
         view.addSubview(menuButton)
+
     }
     
     // MARK: - Tab Bar Delegate Methods
@@ -184,11 +162,6 @@ class CustomTabBarController: UITabBarController {
             selectedViewController = vcA
             customTabBar.selectedItem = itemA
             selectedItem = itemA
-            break
-        case itemB:
-            selectedViewController = vcB
-            customTabBar.selectedItem = itemB
-            selectedItem = itemB
             break
         case hiddenItem:
             customTabBar.selectedItem = selectedItem
@@ -228,88 +201,69 @@ class CustomTabBarController: UITabBarController {
         closeMenu(true)
     }
     
-    // This method is invoked when the status button is tapped
-    func statusTapped(gestureRecognizer: UIGestureRecognizer) {
-        
-        // Animate fading out the other buttons and opening the custom alert view
-        UIView.animateWithDuration(0.4, animations: {
-            
-            self.waterButton.alpha = 0.0
-            self.foodButton.alpha = 0.0
-            self.exerciseButton.alpha = 0.0
-            self.weightButton.alpha = 0.0
-            }, completion: { (value: Bool) in
-                
-                self.menuEnabled = false
-                self.closeMenu(false)
-                self.openCustomAlertView() // make this unique for a more interesting user interface
-        })
-    }
-    
+
     // This method is invoked when the water button is tapped
-    func waterTapped(gestureRecognizer: UIGestureRecognizer) {
+    func logOutTapped(gestureRecognizer: UIGestureRecognizer) {
         
         // Animate fading out the other buttons and opening the custom alert view
         UIView.animateWithDuration(0.4, animations: {
             
-            self.statusButton.alpha = 0.0
-            self.foodButton.alpha = 0.0
-            self.exerciseButton.alpha = 0.0
-            self.weightButton.alpha = 0.0
+            self.profileButton.alpha = 0.0
+            self.tweetButton.alpha = 0.0
             }, completion: { (value: Bool) in
                 
                 self.menuEnabled = false
                 self.closeMenu(false)
-                self.openCustomAlertView() // make this unique for a more interesting user interface
-        })
-    }
-    
-    // This method is invoked when the food button is tapped
-    func foodTapped(gestureRecognizer: UIGestureRecognizer) {
-        
-        // Animate fading out the other buttons and opening the custom alert view
-        UIView.animateWithDuration(0.4, animations: {
-            
-            self.statusButton.alpha = 0.0
-            self.waterButton.alpha = 0.0
-            self.exerciseButton.alpha = 0.0
-            self.weightButton.alpha = 0.0
-            }, completion: { (value: Bool) in
+                //self.openCustomAlertView() // make this unique for a more interesting user interface
                 
-                self.menuEnabled = false
-                self.closeMenu(false)
-                self.openCustomAlertView() // make this unique for a more interesting user interface
+                Twitter.sharedInstance().sessionStore.logOutUserID(self.appDelegate.twittderID)
+                print("signed out from \(self.appDelegate.twittderID)")
+                self.performSegueWithIdentifier("logOut", sender: self)
         })
     }
     
     // This method is invoked when the exercise button is tapped
-    func exerciseTapped(gestureRecognizer: UIGestureRecognizer) {
+    func tweetTapped(gestureRecognizer: UIGestureRecognizer) {
         
         // Animate fading out the other buttons and opening the custom alert view
         UIView.animateWithDuration(0.4, animations: {
             
-            self.statusButton.alpha = 0.0
-            self.waterButton.alpha = 0.0
-            self.foodButton.alpha = 0.0
-            self.weightButton.alpha = 0.0
+            self.logoutButton.alpha = 0.0
+            self.profileButton.alpha = 0.0
             }, completion: { (value: Bool) in
                 
                 self.menuEnabled = false
                 self.closeMenu(false)
-                self.openCustomAlertView() // make this unique for a more interesting user interface
+               // self.openCustomAlertView() // make this unique for a more interesting user interface
+                
+                if let session = Twitter.sharedInstance().sessionStore.session() {
+                    
+                    // User generated image
+                    let image = UIImage()
+                    
+                    // Create the card and composer
+                    let card = TWTRCardConfiguration.appCardConfigurationWithPromoImage(image, iPhoneAppID: "12345", iPadAppID: nil, googlePlayAppID: nil)
+                    let composer = TWTRComposerViewController(userID: session.userID, cardConfiguration: card)
+                    
+                    // Optionally set yourself as the delegate
+                    //composer.delegate = self
+                    
+                    // Show the view controller
+                    self.presentViewController(composer, animated: true, completion: nil)
+                }
+
         })
     }
     
     // This method is invoked when the weight button is tapped
-    func weightTapped(gestureRecognizer: UIGestureRecognizer) {
+    func profileTapped(gestureRecognizer: UIGestureRecognizer) {
         
         // Animate fading out the other buttons and opening the custom alert view
         UIView.animateWithDuration(0.4, animations: {
             
-            self.statusButton.alpha = 0.0
-            self.waterButton.alpha = 0.0
-            self.foodButton.alpha = 0.0
-            self.exerciseButton.alpha = 0.0
+            self.logoutButton.alpha = 0.0
+            self.profileButton.alpha = 0.0
+            self.tweetButton.alpha = 0.0
             }, completion: { (value: Bool) in
                 
                 self.menuEnabled = false
@@ -324,19 +278,15 @@ class CustomTabBarController: UITabBarController {
     func openMenu() {
         
         // Restore the opaqueness of all the buttons
-        self.statusButton.alpha = 1.0
-        self.waterButton.alpha = 1.0
-        self.foodButton.alpha = 1.0
-        self.exerciseButton.alpha = 1.0
-        self.weightButton.alpha = 1.0
+        self.logoutButton.alpha = 1.0
+        self.profileButton.alpha = 1.0
+        self.tweetButton.alpha = 1.0
         
         // Bring the buttons and fadeView to front such that the fadeView covers everything EXCEPT the buttons
         self.view.bringSubviewToFront(self.fadeView)
-        self.view.bringSubviewToFront(self.statusButton)
-        self.view.bringSubviewToFront(self.waterButton)
-        self.view.bringSubviewToFront(self.foodButton)
-        self.view.bringSubviewToFront(self.exerciseButton)
-        self.view.bringSubviewToFront(self.weightButton)
+        self.view.bringSubviewToFront(self.logoutButton)
+        self.view.bringSubviewToFront(self.profileButton)
+        self.view.bringSubviewToFront(self.tweetButton)
         self.view.bringSubviewToFront(self.menuButton)
         
         // Animate rotating to menu button and fading the background quickly
@@ -349,11 +299,9 @@ class CustomTabBarController: UITabBarController {
         // Animate springing out the individual menu buttons a little more slowly
         UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             
-            self.statusButton.transform = CGAffineTransformMakeTranslation(-0.3 * self.viewWidth, -0.125 * self.viewHeight)
-            self.waterButton.transform = CGAffineTransformMakeTranslation(-0.18 * self.viewWidth, -0.22 * self.viewHeight)
-            self.foodButton.transform = CGAffineTransformMakeTranslation(0, -0.25 * self.viewHeight)
-            self.exerciseButton.transform = CGAffineTransformMakeTranslation(0.18 * self.viewWidth, -0.22 * self.viewHeight)
-            self.weightButton.transform = CGAffineTransformMakeTranslation(0.3 * self.viewWidth, -0.125 * self.viewHeight)
+            self.logoutButton.transform = CGAffineTransformMakeTranslation(-0.18 * self.viewWidth, -0.22 * self.viewHeight)
+            self.profileButton.transform = CGAffineTransformMakeTranslation(0, -0.25 * self.viewHeight)
+            self.tweetButton.transform = CGAffineTransformMakeTranslation(0.18 * self.viewWidth, -0.22 * self.viewHeight)
             }, completion: nil)
     }
     
@@ -370,11 +318,9 @@ class CustomTabBarController: UITabBarController {
             }
             
             self.menuButton.transform = CGAffineTransformMakeRotation(0.0)
-            self.statusButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            self.waterButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            self.foodButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            self.exerciseButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            self.weightButton.transform = CGAffineTransformMakeTranslation(0, 0)
+            self.logoutButton.transform = CGAffineTransformMakeTranslation(0, 0)
+            self.profileButton.transform = CGAffineTransformMakeTranslation(0, 0)
+            self.tweetButton.transform = CGAffineTransformMakeTranslation(0, 0)
             
             }, completion: { (value: Bool) in
                 
