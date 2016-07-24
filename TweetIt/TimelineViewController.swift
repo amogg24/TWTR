@@ -1,6 +1,6 @@
 //
 //  TimelineViewController.swift
-//  Tweeter
+//  TweetIt
 //
 //  Created by Andrew Mogg on 7/23/16.
 //  Copyright © 2016 Andrew Mogg. All rights reserved.
@@ -36,7 +36,7 @@ class TimelineViewController: TWTRTimelineViewController {
     func getUserData()
     {
         let client = TWTRAPIClient()
-        let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/show.json?userID=\(appDelegate.twittderID)"
+        let statusesShowEndpoint = "https://api.twitter.com/1.1/users/show.json?user_id=\(appDelegate.twittderID)"
         let params = ["id": "20"]
         var clientError : NSError?
         
@@ -52,13 +52,35 @@ class TimelineViewController: TWTRTimelineViewController {
             do {
                 json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
                 //print("json: \(json)")
-                if json!["profile_image_url"] != nil {
-                    print("image found!")
-//                    let imageURL = json!["profile_image_url"] as! String
-//                    let url = NSURL(string: imageURL)
-//                    print("\(url)")
-//                    let image = UIImage(data: NSData(contentsOfURL: url!)!)
-//                    self.menu.setBackgroundImage(image, forState: UIControlState.Normal , barMetrics: .Default)
+                
+//                //Still need picture to show
+//                if json!["profile_image_url"] != nil {
+//                    
+//                    if let url  = NSURL(string: json!["profile_image_url"] as! String),
+//                        data = NSData(contentsOfURL: url)
+//                    {
+//                        self.appDelegate.userImage.image = UIImage(data: data)
+//                    }
+//                }
+                if json!["name"] != nil {
+                    self.appDelegate.name = json!["name"] as! String
+                    print(self.appDelegate.name)
+                    
+                }
+                if json!["location"] != nil {
+                    self.appDelegate.location = json!["location"] as! String
+                    print(self.appDelegate.location)
+                    
+                }
+                if json!["followers_count"] != nil {
+                    self.appDelegate.followers = json!["followers_count"] as! Int
+                    print(self.appDelegate.followers)
+                    
+                }
+                if json!["friends_count"] != nil {
+                    print("frinds founds!")
+                    self.appDelegate.friends = json!["friends_count"] as! Int
+                    print(self.appDelegate.friends)
                     
                 }
                 else {
@@ -70,8 +92,8 @@ class TimelineViewController: TWTRTimelineViewController {
                 print("json error: \(jsonError.localizedDescription)")
             }
         }
-
-
+        
+        
     }
     
     

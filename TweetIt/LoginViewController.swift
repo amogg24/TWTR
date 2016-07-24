@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  Tweeter
+//  TweetIt
 //
 //  Created by Andrew Mogg on 7/23/16.
 //  Copyright © 2016 Andrew Mogg. All rights reserved.

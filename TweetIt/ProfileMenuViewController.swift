@@ -1,24 +1,29 @@
 //
-//  CustomAlertViewController.swift
-//  ExplodingMenu
+//  ProfileMenuViewController.swift
+//  TweetIt
 //
-//  Created by Nicholas Montgomery on 4/25/15.
-//  Copyright (c) 2015 Nicholas Montgomery. All rights reserved.
+//  Created by Andrew Mogg on 7/23/16.
+//  Copyright © 2016 Andrew Mogg. All rights reserved.
+
 //
 
 import UIKit
 
-class CustomAlertViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     
     // Stores the user's selected row to pass upstream
     var selection = ""
     // Passed from upstream to trigger a callback upon returning to upstream view controller
-    var sender: CustomTabBarController!
+    var sender: MainController!
 
     // MARK: - View Did Load
     
+    @IBOutlet var handleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleLabel.text! = appDelegate.userName
 
     }
     
@@ -41,22 +46,21 @@ class CustomAlertViewController: UIViewController, UITableViewDataSource, UITabl
         
         let row = indexPath.row
         
-//        var cell = tableView.dequeueReusableCellWithIdentifier("simpleLabelRow") as UITableViewCell!
         let cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("simpleLabelRow")
         
         // Assign for simple labels
         switch(row) {
         case 0:
-            cell!.textLabel!.text = "Breakfast"
+            cell!.textLabel!.text = appDelegate.name
             break
         case 1:
-            cell!.textLabel!.text = "Lunch"
+            cell!.textLabel!.text = appDelegate.location
             break
         case 2:
-            cell!.textLabel!.text = "Dinner"
+            cell!.textLabel!.text = "Followers: \(appDelegate.followers)"
             break
         case 3:
-            cell!.textLabel!.text = "Snacks"
+            cell!.textLabel!.text = "Following: \(appDelegate.friends)"
             break
         default:
             cell!.textLabel!.text = "Error"
@@ -64,39 +68,6 @@ class CustomAlertViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         return cell!
-    }
-    
-    // Handle row selection
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let row = indexPath.row
-        
-        // Return the label value of the selected row
-        switch(row) {
-        case 0:
-            selection = "Breakfast"
-            break
-        case 1:
-            selection = "Lunch"
-            break
-        case 2:
-            selection = "Dinner"
-            break
-        case 3:
-            selection = "Snacks"
-            break
-        default:
-            selection = "Error"
-            break
-        }
-        
-        // Close and return to upstream control
-        dismissViewControllerAnimated(true, completion: {
-            
-            // Set the selection upstream and call "segueToDetailViewController"
-            self.sender.selection = self.selection
-            self.sender.segueToDetailViewController()
-        })
     }
     
     // MARK: TableViewDataSource Methods

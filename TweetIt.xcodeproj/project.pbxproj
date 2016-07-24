@@ -17,9 +17,8 @@
 		FC74C3391D440FFB00A5C11A /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74C3351D440FFB00A5C11A /* TwitterKit.framework */; };
 		FC74C33A1D440FFB00A5C11A /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC74C3361D440FFB00A5C11A /* TwitterKitResources.bundle */; };
 		FC74C33B1D440FFB00A5C11A /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74C3371D440FFB00A5C11A /* TwitterCore.framework */; };
-		FC74C3401D44109A00A5C11A /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */; };
-		FC74C3411D44109A00A5C11A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */; };
-		FC74C3421D44109A00A5C11A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33F1D44109A00A5C11A /* DetailViewController.swift */; };
+		FC74C3401D44109A00A5C11A /* ProfileMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33D1D44109A00A5C11A /* ProfileMenuViewController.swift */; };
+		FC74C3411D44109A00A5C11A /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74C33E1D44109A00A5C11A /* MainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +34,8 @@
 		FC74C3351D440FFB00A5C11A /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		FC74C3361D440FFB00A5C11A /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		FC74C3371D440FFB00A5C11A /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
-		FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		FC74C33F1D44109A00A5C11A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FC74C33D1D44109A00A5C11A /* ProfileMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMenuViewController.swift; sourceTree = "<group>"; };
+		FC74C33E1D44109A00A5C11A /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +74,8 @@
 				FC74C33C1D44102900A5C11A /* Twitter Frameworks */,
 				FC74C3211D440F5100A5C11A /* AppDelegate.swift */,
 				FC74C3251D440F5100A5C11A /* Main.storyboard */,
-				FC74C33D1D44109A00A5C11A /* CustomAlertViewController.swift */,
-				FC74C33E1D44109A00A5C11A /* CustomTabBarController.swift */,
-				FC74C33F1D44109A00A5C11A /* DetailViewController.swift */,
+				FC74C33D1D44109A00A5C11A /* ProfileMenuViewController.swift */,
+				FC74C33E1D44109A00A5C11A /* MainController.swift */,
 				FC2B21961D454A6B001767C3 /* TimelineViewController.swift */,
 				FC2B21981D454A90001767C3 /* LoginViewController.swift */,
 				FC74C3281D440F5100A5C11A /* Assets.xcassets */,
@@ -191,10 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2B21991D454A90001767C3 /* LoginViewController.swift in Sources */,
-				FC74C3401D44109A00A5C11A /* CustomAlertViewController.swift in Sources */,
+				FC74C3401D44109A00A5C11A /* ProfileMenuViewController.swift in Sources */,
 				FC74C3221D440F5100A5C11A /* AppDelegate.swift in Sources */,
-				FC74C3411D44109A00A5C11A /* CustomTabBarController.swift in Sources */,
-				FC74C3421D44109A00A5C11A /* DetailViewController.swift in Sources */,
+				FC74C3411D44109A00A5C11A /* MainController.swift in Sources */,
 				FC2B21971D454A6B001767C3 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

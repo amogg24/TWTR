@@ -17,8 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var twittderID: String = ""
     var userName: String = ""
+    var userImage = UIImageView()
+    var name = ""
+    var location = ""
+    var followers = 0
+    var friends = 0
 
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Twitter.self()])

@@ -1,15 +1,15 @@
 //
-//  CustomTabBarController.swift
-//  ExplodingMenu
+//  MainController.swift
+//  TweetIt
 //
-//  Created by Nicholas Montgomery on 4/20/15.
-//  Copyright (c) 2015 Nicholas Montgomery. All rights reserved.
+//  Created by Andrew Mogg on 7/23/16.
+//  Copyright © 2016 Andrew Mogg. All rights reserved.
 //
 
 import UIKit
 import TwitterKit
 
-class CustomTabBarController: UITabBarController {
+class MainController: UITabBarController {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -65,7 +65,7 @@ class CustomTabBarController: UITabBarController {
         fadeView.alpha = 0.0
         
         // Add a gesture recognizer to control when the fadeView is tapped
-        let singleTapBackground = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.backgroundTapped(_:)))
+        let singleTapBackground = UITapGestureRecognizer(target: self, action: #selector(MainController.backgroundTapped(_:)))
         singleTapBackground.numberOfTapsRequired = 1
         fadeView.addGestureRecognizer(singleTapBackground)
         
@@ -83,7 +83,7 @@ class CustomTabBarController: UITabBarController {
         menuButton.setImage(UIImage(named: "menu-button"), forState: UIControlState.Normal)
         
         // Add a gesture recognizer to the menu button
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.menuTapped(_:)))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(MainController.menuTapped(_:)))
         singleTap.numberOfTapsRequired = 1
         menuButton.addGestureRecognizer(singleTap)
         
@@ -94,21 +94,22 @@ class CustomTabBarController: UITabBarController {
         logoutButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
         logoutButton.setImage(UIImage(named: "Logout"), forState: UIControlState.Normal)
         
-        let logoutTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.logOutTapped(_:)))
+        let logoutTap = UITapGestureRecognizer(target: self, action: #selector(MainController.logOutTapped(_:)))
         logoutTap.numberOfTapsRequired = 1
         logoutButton.addGestureRecognizer(logoutTap)
         
         profileButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
-        profileButton.setImage(UIImage(named: "Food"), forState: UIControlState.Normal)
+        profileButton.setImage(UIImage(named: "twtr-icn-logo"), forState: UIControlState.Normal)
         
-        let profileTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.profileTapped(_:)))
+        
+        let profileTap = UITapGestureRecognizer(target: self, action: #selector(MainController.profileTapped(_:)))
         profileTap.numberOfTapsRequired = 1
         profileButton.addGestureRecognizer(profileTap)
         
         tweetButton = UIButton(frame: CGRect(x: viewWidth / 2 - menuItemSize / 2, y: viewHeight - menuButtonSize * 1.05, width: menuItemSize, height: menuItemSize))
         tweetButton.setImage(UIImage(named: "tweetthumb"), forState: UIControlState.Normal)
         
-        let tweetTap = UITapGestureRecognizer(target: self, action: #selector(CustomTabBarController.tweetTapped(_:)))
+        let tweetTap = UITapGestureRecognizer(target: self, action: #selector(MainController.tweetTapped(_:)))
         tweetTap.numberOfTapsRequired = 1
         tweetButton.addGestureRecognizer(tweetTap)
         
@@ -338,32 +339,10 @@ class CustomTabBarController: UITabBarController {
     // Instantiate and present the custom alert view (popup)
     func openCustomAlertView() {
         
-        let alert = storyboard?.instantiateViewControllerWithIdentifier("alert") as! CustomAlertViewController
+        let alert = storyboard?.instantiateViewControllerWithIdentifier("alert") as! ProfileMenuViewController
         alert.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         alert.sender = self
         presentViewController(alert, animated: true, completion: nil)
     }
-    
-    // MARK: - Custom Navigation
-    
-    // Called downstream to handle custom alert view's selection
-    func segueToDetailViewController() {
-        
-        self.performSegueWithIdentifier("alertViewRowSelected", sender: self)
-    }
-    
-    // MARK: - Prepare for Segue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "alertViewRowSelected" {
-            let detailController = segue.destinationViewController as! DetailViewController
-            // Pass the selection downstream
-            detailController.selection = selection
-            self.fadeView.alpha = 0.0
-            self.view.sendSubviewToBack(self.fadeView)
-        }
-        
-    }
-}
+ }
 
