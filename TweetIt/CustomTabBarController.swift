@@ -119,7 +119,7 @@ class CustomTabBarController: UITabBarController {
         customTabBar = UITabBar(frame: CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y, width: tabBar.frame.width, height: tabBar.frame.height))
         
         // Initiate each view controller and assign its associated tab bar item
-        vcA = (storyboard?.instantiateViewControllerWithIdentifier("Timeline"))! as UIViewController
+        vcA = (storyboard?.instantiateViewControllerWithIdentifier("Timeline"))! as! UINavigationController
         vcHidden = (storyboard?.instantiateViewControllerWithIdentifier("Hidden"))! as
         UIViewController
         

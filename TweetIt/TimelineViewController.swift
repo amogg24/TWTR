@@ -21,8 +21,8 @@ class TimelineViewController: TWTRTimelineViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.backgroundColor = UIColor.magentaColor()
-        //navigationItem.title = "\(appDelegate.userName)'s Tweets"
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 14.0/255, green: 122.0/255, blue: 254.0/255, alpha: 1.0)
+        navigationItem.title = "\(appDelegate.userName)'s Tweets"
         self.dataSource = TWTRUserTimelineDataSource(screenName: "\(appDelegate.userName)", APIClient: TWTRAPIClient())
         
         // Get the height and width of the view
@@ -36,7 +36,7 @@ class TimelineViewController: TWTRTimelineViewController {
     func getUserData()
     {
         let client = TWTRAPIClient()
-        let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/show.json?screen_name=_mogger"
+        let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/show.json?userID=\(appDelegate.twittderID)"
         let params = ["id": "20"]
         var clientError : NSError?
         
@@ -52,11 +52,11 @@ class TimelineViewController: TWTRTimelineViewController {
             do {
                 json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
                 //print("json: \(json)")
-                if json!["user"]!["profile_image_url"] != nil {
+                if json!["profile_image_url"] != nil {
                     print("image found!")
-                    let imageURL = json!["user"]!["profile_image_url"] as! String
-                    let url = NSURL(string: imageURL)
-                    print("\(url)")
+//                    let imageURL = json!["profile_image_url"] as! String
+//                    let url = NSURL(string: imageURL)
+//                    print("\(url)")
 //                    let image = UIImage(data: NSData(contentsOfURL: url!)!)
 //                    self.menu.setBackgroundImage(image, forState: UIControlState.Normal , barMetrics: .Default)
                     

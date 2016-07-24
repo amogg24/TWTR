@@ -196,7 +196,7 @@
                             <constraint firstItem="VNG-4y-Lkm" firstAttribute="leading" secondItem="Y9a-PS-UHz" secondAttribute="leadingMargin" id="ekd-mB-GCR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="5E534234-87DE-4130-BF75-81E2E3E69D71" id="1Jg-f9-hnt"/>
+                    <tabBarItem key="tabBarItem" title="" image="6AB92684-142A-46CD-8C95-085FDE577991" id="1Jg-f9-hnt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="un7-a9-Lv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,14 +205,14 @@
         <!--Timeline View Controller-->
         <scene sceneID="P38-rB-1bv">
             <objects>
-                <tableViewController storyboardIdentifier="Timeline" id="1lk-GJ-bRj" customClass="TimelineViewController" customModule="TweetIt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1lk-GJ-bRj" customClass="TimelineViewController" customModule="TweetIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jXd-7D-dQs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Timeline" id="cR0-i0-2oK">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cR0-i0-2oK" id="zqa-Bt-hpO">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -225,10 +225,11 @@
                             <outlet property="delegate" destination="1lk-GJ-bRj" id="yFp-pY-Cs3"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="1WG-3d-dHc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWt-XG-0Ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="-1364"/>
+            <point key="canvasLocation" x="1937" y="-1364"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tuE-ln-ChW">
@@ -262,9 +263,27 @@
             </objects>
             <point key="canvasLocation" x="-1288" y="-15"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yfA-ig-44d">
+            <objects>
+                <navigationController storyboardIdentifier="Timeline" automaticallyAdjustsScrollViewInsets="NO" id="o4V-Dd-KE5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gNA-69-4b2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1lk-GJ-bRj" kind="relationship" relationship="rootViewController" id="2TP-VA-dN4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68X-U3-2aQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="-1364"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="5E534234-87DE-4130-BF75-81E2E3E69D71" width="30" height="30">
+        <image name="6AB92684-142A-46CD-8C95-085FDE577991" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
