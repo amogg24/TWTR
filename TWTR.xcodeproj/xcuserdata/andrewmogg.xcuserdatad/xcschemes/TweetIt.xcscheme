@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC74C31D1D440F5100A5C11A"
-               BuildableName = "TweetIt.app"
-               BlueprintName = "TweetIt"
-               ReferencedContainer = "container:TweetIt.xcodeproj">
+               BuildableName = "TWTR.app"
+               BlueprintName = "TWTR"
+               ReferencedContainer = "container:TWTR.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC74C31D1D440F5100A5C11A"
-            BuildableName = "TweetIt.app"
-            BlueprintName = "TweetIt"
-            ReferencedContainer = "container:TweetIt.xcodeproj">
+            BuildableName = "TWTR.app"
+            BlueprintName = "TWTR"
+            ReferencedContainer = "container:TWTR.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC74C31D1D440F5100A5C11A"
-            BuildableName = "TweetIt.app"
-            BlueprintName = "TweetIt"
-            ReferencedContainer = "container:TweetIt.xcodeproj">
+            BuildableName = "TWTR.app"
+            BlueprintName = "TWTR"
+            ReferencedContainer = "container:TWTR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC74C31D1D440F5100A5C11A"
-            BuildableName = "TweetIt.app"
-            BlueprintName = "TweetIt"
-            ReferencedContainer = "container:TweetIt.xcodeproj">
+            BuildableName = "TWTR.app"
+            BlueprintName = "TWTR"
+            ReferencedContainer = "container:TWTR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

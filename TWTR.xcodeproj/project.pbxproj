@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		FC2B21961D454A6B001767C3 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		FC2B21981D454A90001767C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FC74C31E1D440F5100A5C11A /* TweetIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC74C31E1D440F5100A5C11A /* TWTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC74C3211D440F5100A5C11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC74C3261D440F5100A5C11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC74C3281D440F5100A5C11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		FC74C3151D440F5100A5C11A = {
 			isa = PBXGroup;
 			children = (
-				FC74C3201D440F5100A5C11A /* TweetIt */,
+				FC74C3201D440F5100A5C11A /* TWTR */,
 				FC74C31F1D440F5100A5C11A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,12 +63,12 @@
 		FC74C31F1D440F5100A5C11A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC74C31E1D440F5100A5C11A /* TweetIt.app */,
+				FC74C31E1D440F5100A5C11A /* TWTR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC74C3201D440F5100A5C11A /* TweetIt */ = {
+		FC74C3201D440F5100A5C11A /* TWTR */ = {
 			isa = PBXGroup;
 			children = (
 				FC74C33C1D44102900A5C11A /* Twitter Frameworks */,
@@ -82,6 +82,7 @@
 				FC74C32A1D440F5100A5C11A /* LaunchScreen.storyboard */,
 				FC74C32D1D440F5100A5C11A /* Info.plist */,
 			);
+			name = TWTR;
 			path = TweetIt;
 			sourceTree = "<group>";
 		};
@@ -99,9 +100,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC74C31D1D440F5100A5C11A /* TweetIt */ = {
+		FC74C31D1D440F5100A5C11A /* TWTR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC74C3301D440F5100A5C11A /* Build configuration list for PBXNativeTarget "TweetIt" */;
+			buildConfigurationList = FC74C3301D440F5100A5C11A /* Build configuration list for PBXNativeTarget "TWTR" */;
 			buildPhases = (
 				FC74C31A1D440F5100A5C11A /* Sources */,
 				FC74C31B1D440F5100A5C11A /* Frameworks */,
@@ -112,9 +113,9 @@
 			);
 			dependencies = (
 			);
-			name = TweetIt;
+			name = TWTR;
 			productName = TweetIt;
-			productReference = FC74C31E1D440F5100A5C11A /* TweetIt.app */;
+			productReference = FC74C31E1D440F5100A5C11A /* TWTR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FC74C3191D440F5100A5C11A /* Build configuration list for PBXProject "TweetIt" */;
+			buildConfigurationList = FC74C3191D440F5100A5C11A /* Build configuration list for PBXProject "TWTR" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -146,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC74C31D1D440F5100A5C11A /* TweetIt */,
+				FC74C31D1D440F5100A5C11A /* TWTR */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +312,7 @@
 				INFOPLIST_FILE = TweetIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewmogg.TweetIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TWTR;
 			};
 			name = Debug;
 		};
@@ -326,14 +327,14 @@
 				INFOPLIST_FILE = TweetIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewmogg.TweetIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TWTR;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC74C3191D440F5100A5C11A /* Build configuration list for PBXProject "TweetIt" */ = {
+		FC74C3191D440F5100A5C11A /* Build configuration list for PBXProject "TWTR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC74C32E1D440F5100A5C11A /* Debug */,
@@ -342,7 +343,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC74C3301D440F5100A5C11A /* Build configuration list for PBXNativeTarget "TweetIt" */ = {
+		FC74C3301D440F5100A5C11A /* Build configuration list for PBXNativeTarget "TWTR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC74C3311D440F5100A5C11A /* Debug */,
