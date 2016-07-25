@@ -134,7 +134,7 @@
                             <constraint firstItem="VNG-4y-Lkm" firstAttribute="leading" secondItem="Y9a-PS-UHz" secondAttribute="leadingMargin" id="ekd-mB-GCR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="DF89F04D-709B-4774-B1E2-30391D5760EE" id="1Jg-f9-hnt"/>
+                    <tabBarItem key="tabBarItem" title="" image="E45D3921-D9B2-4D68-B7CF-38EECE595FFA" id="1Jg-f9-hnt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="un7-a9-Lv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,7 +181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BGBlue" translatesAutoresizingMaskIntoConstraints="NO" id="Cfx-Wk-9vH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="T-3" translatesAutoresizingMaskIntoConstraints="NO" id="Cfx-Wk-9vH">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
                         </subviews>
@@ -221,8 +221,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BGBlue" width="1024" height="640"/>
-        <image name="DF89F04D-709B-4774-B1E2-30391D5760EE" width="30" height="30">
+        <image name="E45D3921-D9B2-4D68-B7CF-38EECE595FFA" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -352,5 +351,6 @@ QxxSHFYcXRxlHHIcdxx5HHscgByIHIsckByYHJscrRywHLUAAAAAAAACAQAAAAAAAAA+AAAAAAAAAAAA
 AAAAAAActw
 </mutableData>
         </image>
+        <image name="T-3" width="800" height="800"/>
     </resources>
 </document>

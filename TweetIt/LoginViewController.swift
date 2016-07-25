@@ -38,7 +38,11 @@ class LoginViewController: UIViewController {
                 print("error: \(error!.localizedDescription)");
             }
         })
-        logInButton.center = self.view.center
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width * 0.5
+        let yPos = screenSize.maxY - 75
+        let a = CGPointMake(screenWidth, yPos)
+        logInButton.center = self.view.convertPoint(a, fromCoordinateSpace: self.view)
         self.view.addSubview(logInButton)
     }
     
